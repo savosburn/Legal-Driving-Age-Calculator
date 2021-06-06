@@ -13,14 +13,23 @@ public class App {
     public static void main(String[] args) {
         App myApp = new App();
 
+        // Input
         int age = myApp.readAge();
 
+        // Output
         String outputString = myApp.generateOutput(age);
         myApp.printOutput(outputString);
     }
 
     public int readAge() {
         System.out.print("What is your age? ");
+
+        // User can only enter an integer
+        while (!in.hasNextInt()) {
+            System.out.print("Invalid age. Enter again: ");
+            in.next();
+        }
+
         return in.nextInt();
     }
 
